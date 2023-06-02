@@ -1,27 +1,34 @@
-# AngularCourse
+# Angular Training
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+## Setting Up
 
-## Development server
+- Install Node
+- Install TypeScript globally: `npm install -g typescript`
+- Install angular cli: `npm install -g @angular/cli`
+To check if angular cli was properly installed, run: `ng version`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Creating a Angular project
 
-## Code scaffolding
+- Run `ng new project-name`
+- Starting up the project `ng serve`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Components
 
-## Build
+- Components should sit under `src/app`
+- Components should be named with "-". (`my-first.component.ts`)
+- Class naming convention for this component would be `MyFirstComponent`
+- The `src\app\app.module.ts` file holds all the imports, so there is no need to import components on each file
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Generating components
 
-## Running unit tests
+1. Run `ng g c component-name`. This will generate a few files related to the component in order to be edited
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Note: `selector` is how the component will be called later on (`<my-second-component></my-second-component>`)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```javascript
+@Component({
+  selector: 'my-second-component',
+  templateUrl: './my-second.component.html',
+  styleUrls: ['./my-second.component.css']
+})
+```
