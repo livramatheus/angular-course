@@ -17,7 +17,6 @@ To check if angular cli was properly installed, run: `ng version`
 - Components should sit under `src/app`
 - Components should be named with "-". (`my-first.component.ts`)
 - Class naming convention for this component would be `MyFirstComponent`
-- The `src\app\app.module.ts` file holds all the imports, so there is no need to import components on each file
 
 ### Generating components
 
@@ -32,3 +31,18 @@ Note: `selector` is how the component will be called later on (`<my-second-compo
   styleUrls: ['./my-second.component.css']
 })
 ```
+
+## Modules
+
+- Used to create subsections/subfolders. (Admin, Product, Client, Reports...)
+- `export class AppModule`. `AppModule` is the app's root module.
+- The `src\app\app.module.ts` file holds all the imports, so there is no need to import components on each file. This file will also hold all the necessary dependencies.
+- To create a module inside a module, run: `ng g c module/submodule-name`
+
+### Generating modules
+
+1. Run `ng g m module-name`. This will generate a new module template inside the app folder
+2. Run `ng g c module-name`. This will generate the remaining files inside folder with the same name as `module-nane`
+3. Step 2 might generate unwanted data under `app.module.ts`. As `module-name` is a submodule, remove the component from `declarations` attribute and move it to the `module-name.ts`, under the same `declarations` attribute.
+4. As this is a component inside a new module, it needs to be exposed, by adding `exports: [NameComponent]` to the module file
+5. The child module should be imported under the parent module: `imports: [NameModule]`
