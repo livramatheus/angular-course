@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { MyFirstComponent } from './my-first/my-first.component';
 import { MySecondComponent } from './my-second/my-second.component';
 import { CursosModule } from './cursos/cursos.module';
+import { DataBindingComponent } from './data-binding/data-binding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyFirstComponent,
-    MySecondComponent
+    MySecondComponent,
+    DataBindingComponent
   ],
   imports: [
     BrowserModule,

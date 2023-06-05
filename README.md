@@ -89,3 +89,9 @@ constructor(private cursosService: CursosService) {
   this.courses = this.cursosService.getCursos();
 }
 ```
+
+## Data Binding
+
+- Associate template to component
+- Variables and function returns from the class component can be binded to the html file
+- HTML tags properties can also be binded

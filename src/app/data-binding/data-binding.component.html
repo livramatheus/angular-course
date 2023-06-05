@@ -1,0 +1,21 @@
+<section>
+    <article>
+        <h3>Interpolation</h3>
+        <p>Attribute from component class: {{ url }}</p>
+        <p>Expression. 1 + 1 = {{ 1+1 }}</p>
+        <p>Function from component class. 1 + 1 is not {{ getValor() }}</p>
+        <p>Expressions: {{ likedCourse && getLikedCourse() }}</p>
+    </article>
+
+    <article>
+        <h3>Property Binding</h3>
+        
+        <!-- Interpolation -->
+        <p>This:</p>
+        <img src="{{ imageUrl }}"> 
+
+        <!-- Property Binding -->
+        <p>Is the same as:</p>
+        <img [src]="imageUrl">
+    </article>
+</section>
