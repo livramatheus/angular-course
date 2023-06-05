@@ -46,3 +46,34 @@ Note: `selector` is how the component will be called later on (`<my-second-compo
 3. Step 2 might generate unwanted data under `app.module.ts`. As `module-name` is a submodule, remove the component from `declarations` attribute and move it to the `module-name.ts`, under the same `declarations` attribute.
 4. As this is a component inside a new module, it needs to be exposed, by adding `exports: [NameComponent]` to the module file
 5. The child module should be imported under the parent module: `imports: [NameModule]`
+
+## Templates
+
+- `.html` files the view. On these files html and js are coded.
+- Inserting dynamic data into templates:
+1. Add data into the component:
+```js
+export class CursosComponent {
+  portalName: string;
+  courses: string[] = ["Java", "Ext JS", "Angular"];
+
+  constructor() {
+    this.portalName = "https://livramento.dev"
+  }
+}
+```
+
+2. Fetch the data in the html file:
+
+Scalar Values:
+
+`{{ portalName }}`
+
+Arrays (uses ngFor):
+```js
+<ul>
+    <li *ngFor="let course of courses">
+        {{course}}
+    </li>
+</ul>
+```
