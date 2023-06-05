@@ -77,3 +77,15 @@ Arrays (uses ngFor):
     </li>
 </ul>
 ```
+
+## Services
+
+- Services are a separate layer of the application that is in charge of fetching data from the back-end and delivering it to the front end
+- To create a service template, just run `ng g s folder/servicename`. If folder is ommited, the service will be generated directly under `/app`
+- The service will be auto injected in the component's constructor:
+
+```javascript
+constructor(private cursosService: CursosService) {
+  this.courses = this.cursosService.getCursos();
+}
+```

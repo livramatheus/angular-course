@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { CursosService } from './cursos.service';
+
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
@@ -8,10 +10,12 @@ import { Component } from '@angular/core';
 export class CursosComponent {
 
   portalName: string;
-  courses: string[] = ["Java", "Ext JS", "Angular"];
+  courses: string[] = [];
 
-  constructor() {
-    this.portalName = "https://livramento.dev"
+  constructor(private cursosService: CursosService) {
+    this.portalName = "https://livramento.dev";
+    
+    this.courses = this.cursosService.getCursos();
   }
 
 }
