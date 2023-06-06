@@ -138,3 +138,17 @@ constructor(private cursosService: CursosService) {
 <input type="text" [(ngModel)]="person.name">
 <input type="text" [(ngModel)]="person.age">
 ```
+
+## Output Properties
+
+- There is a way for the parent component to listen for changes in the child component
+- On **child class component**, create a new emmitter: `@Output() valueChanged = new EventEmitter();`
+- Trigger the emmitter when needed: `this.valueChanged.emit({ newValue: this.value });`
+- Any value can be passed as params for the `emit` function
+- `@Output` is required to expose the emitter
+- Remember to import `@Output` from core
+- On **parent class component**, declare a function that will receive and handle what is being emitted
+- On **parent template file**, call the function declared on parent class component (onValueChanged) and use parenthesis to bind the emitter name that was declared on **child class component** (valueChanged)
+
+Example:
+`<counter [value]="initialValue" (valueChanged)="onValueChanged($event)"></counter>`

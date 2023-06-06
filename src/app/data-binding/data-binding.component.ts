@@ -14,6 +14,7 @@ export class DataBindingComponent {
   savedValue: string = "";
   name: string = "abc";
   courseName: string = "Angular";
+  initialValue: number = 15;
 
   person: any = {
     name: "def",
@@ -38,5 +39,9 @@ export class DataBindingComponent {
 
   onKeyUp(e: KeyboardEvent) {
     this.curValue = (<HTMLInputElement>e.target).value;
+  }
+
+  onValueChanged(e: any) {
+    console.log(e.newValue);
   }
 }
