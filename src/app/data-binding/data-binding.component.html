@@ -18,4 +18,34 @@
         <p>Is the same as:</p>
         <img [src]="imageUrl">
     </article>
+
+    <article>
+        <h3>Class & Style Binding</h3>
+        <select #class (change)="0">
+            <option value="alert-success">Success</option>
+            <option value="alert-info">Info</option>
+            <option value="alert-warning">Alert</option>
+            <option value="alert-danger">Error</option>
+        </select>
+        <br><br>
+
+        <p>Example 1</p>
+
+        <div class="alert {{ class.value }}">Rainbow Box</div>
+
+        <hr>
+
+        <p>Example 2</p>
+
+        <div class="alert" [class.alert-success]="class.value == 'alert-success'">Success</div>
+        <div class="alert" [class.alert-info]="class.value == 'alert-info'">Info</div>
+        <div class="alert" [class.alert-warning]="class.value == 'alert-warning'">Alert</div>
+        <div class="alert" [class.alert-danger]="class.value == 'alert-danger'">Error</div>
+
+        <hr>
+
+        <p>Example 3 - Style Binding</p>
+
+        <div class="alert alert-danger" [style.display]="class.value == 'alert-danger' ? 'block' : 'none'">Error</div>
+    </article>
 </section>
