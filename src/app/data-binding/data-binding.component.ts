@@ -13,6 +13,7 @@ export class DataBindingComponent {
   curValue: string = "";
   savedValue: string = "";
   name: string = "abc";
+  courseName: string = "Angular";
 
   person: any = {
     name: "def",
