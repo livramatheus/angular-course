@@ -10,6 +10,8 @@ export class DataBindingComponent {
   url: string = "http://livramento.dev";
   likedCourse: boolean = true;
   imageUrl = "https://picsum.photos/400/200";
+  curValue: string = "";
+  savedValue: string = "";
 
   getValor() {
     return 3;
@@ -17,5 +19,17 @@ export class DataBindingComponent {
 
   getLikedCourse() {
     return true;
+  }
+
+  buttonClicked() {
+    alert("Button Clicked");
+  }
+
+  saveValue(value: string) {
+    this.savedValue = value;
+  }
+
+  onKeyUp(e: KeyboardEvent) {
+    this.curValue = (<HTMLInputElement>e.target).value;
   }
 }

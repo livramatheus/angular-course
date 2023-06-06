@@ -95,3 +95,28 @@ constructor(private cursosService: CursosService) {
 - Associate template to component
 - Variables and function returns from the class component can be binded to the html file
 - HTML tags properties can also be binded
+
+## Event Binding
+
+- Can be done by passing the whole event as param (remember `$`)
+`(keyup)="onKeyUp($event)"`
+
+- Can be done by creating a local variable (remember `#`)
+```javascript
+<input
+    type="text"
+    (keyup.enter)="saveValue(inputField.value)"
+    (blur)="saveValue(inputField.value)"
+    #inputField
+/>
+```
+
+- There is also another way to set event, preceding it with "on-".
+`(blur)="saveValue(inputField.value)"` is the same as `on-blur="saveValue(inputField.value)"`
+
+## Styles
+
+- There are three ways of seting styles:
+1. Global styles, on `src\styles.css`
+2. Component only styles, `src\app\module-name\comp-name.component.css`
+3. Inside the component itself, under `@Component` object.
