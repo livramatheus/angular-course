@@ -12,6 +12,12 @@ export class DataBindingComponent {
   imageUrl = "https://picsum.photos/400/200";
   curValue: string = "";
   savedValue: string = "";
+  name: string = "abc";
+
+  person: any = {
+    name: "def",
+    age: 20
+  }
 
   getValor() {
     return 3;

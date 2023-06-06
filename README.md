@@ -120,3 +120,21 @@ constructor(private cursosService: CursosService) {
 1. Global styles, on `src\styles.css`
 2. Component only styles, `src\app\module-name\comp-name.component.css`
 3. Inside the component itself, under `@Component` object.
+
+## Two-way data binding
+
+- Is a two-way communication between the template and the class
+- Is mostly used on forms, because the class has always access to the most recent data that is present in the fields
+- The communication is set by [(ngModel)] attribute
+- This is basically the same as a useState from react, where the current value from state is always present in the field
+
+- Referencing scalar values from class
+```javascript
+<input type="text" [(ngModel)]="name">
+```
+
+- Referencing objects from class
+```javascript
+<input type="text" [(ngModel)]="person.name">
+<input type="text" [(ngModel)]="person.age">
+```
