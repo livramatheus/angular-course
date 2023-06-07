@@ -1,5 +1,11 @@
 <div>
     <button (click)="decrement()">-</button>
-    <input type="text" [value]="value" readonly>
+    <input type="text" [value]="value" readonly #inputField>
     <button (click)="increment()">+</button>
+</div>
+
+<div>
+    <button (click)="decrementRef()">-</button>
+    <input type="text" readonly #inputField>
+    <button (click)="incrementRef()">+</button>
 </div>

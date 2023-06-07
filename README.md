@@ -163,3 +163,10 @@ Example:
 5. `ngAfterContentChecked` - After every content checking
 6. `ngAfterViewChecked` - After every content checking / child content
 7. `ngOnDestroy` - Before destroying the component
+
+## Direct access to DOM elements
+
+- Similar to useRef from React
+- Is a direct access to the dom properties
+- Give a name to the field `<input type="text" readonly #inputField>`
+- Declare the variable on the class `@ViewChild('inputField', {static: false}) fieldInputValue!: ElementRef;`
