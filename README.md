@@ -177,3 +177,13 @@ Example:
 - `ng test` run all `.spec.ts` files
 - `ng build` builds the app. Still a debug version that can be changed
 - `ng build --prod` builds the app for production (all files are minified here)
+
+## Installing and Configuring Bootstrap
+
+- Run `npm install --save bootstrap`
+- On the global css file, import Bootstrap styles `@import "~bootstrap/dist/css/bootstrap.css";`
+- On `angular.json`, import bootstrap scripts. Add the script to the scripts array:
+
+```javascript
+"./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js
+```
