@@ -175,3 +175,5 @@ Example:
 
 - `ng lint` verifies the entire code and lists everything that is not properly formatted
 - `ng test` run all `.spec.ts` files
+- `ng build` builds the app. Still a debug version that can be changed
+- `ng build --prod` builds the app for production (all files are minified here)
