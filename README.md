@@ -170,3 +170,8 @@ Example:
 - Is a direct access to the dom properties
 - Give a name to the field `<input type="text" readonly #inputField>`
 - Declare the variable on the class `@ViewChild('inputField', {static: false}) fieldInputValue!: ElementRef;`
+
+## Angular CLI Commands
+
+- `ng lint` verifies the entire code and lists everything that is not properly formatted
+- `ng test` run all `.spec.ts` files
