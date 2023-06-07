@@ -152,3 +152,14 @@ constructor(private cursosService: CursosService) {
 
 Example:
 `<counter [value]="initialValue" (valueChanged)="onValueChanged($event)"></counter>`
+
+## Life Cycle Hooks
+
+- They are defined on the class component. Is a good practice to import them, even though that is not required.
+1. `ngOnChanges` - Before #2 and when the value from property-binding gets updated
+2. `ngOnInit` - When the component is initializated
+3. `ngDoCheck` - Every update check cycle
+4. `ngAfterContentInit` - After inserting external data into the view
+5. `ngAfterContentChecked` - After every content checking
+6. `ngAfterViewChecked` - After every content checking / child content
+7. `ngOnDestroy` - Before destroying the component
