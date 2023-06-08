@@ -187,3 +187,91 @@ Example:
 ```javascript
 "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js
 ```
+
+## Directives
+
+### `*ngIf`
+- Is a regular conditional
+- There is no if and else. The else statement should be done manually
+- Under class: `courseList: string[] = ["Angular 2"];`
+- On template file: 
+```javascript
+    <div *ngIf="this.courseList.length > 0">
+        These are the courses
+    </div>
+
+    <div *ngIf="this.courseList.length == 0">
+        No Courses Available
+    </div>
+```
+
+### `*ngSwitch`
+- Regular switch statement
+- It maps to attributes declared on component class (tab, in this case)
+```javascript
+<div [ngSwitch]="tab">
+    <p *ngSwitchCase="'map'">Map!</p>
+    <p *ngSwitchCase="'list'">List!</p>
+    <p *ngSwitchDefault>Home!</p>
+</div>
+```
+
+### `*ngFor`
+- Regular for statement
+- Also maps to attributes declared on class component (in this case, courses)
+```javascript
+<ul>
+    <li *ngFor="let course of courses, let i = index">
+        {{ i }} - {{ course }}
+    </li>
+</ul>
+```
+
+### `ngClass`
+- With this directive you can add/remove classes from an element
+- `favorite` is mapping to an attribute defined on the component class
+
+```javascript
+<h1>
+    <i
+        class="icon" [ngClass]="{
+            'icon-empty': !favorite,
+            'icon-full': favorite
+        }"
+        (click)="favoriteItem()"
+    ></i>
+</h1>
+```
+
+### `ngStyle`
+- Similar to `ngClass` but this one is used to set inline css based on component class attributes
+- In the following example, the styles are being applied based on `active` and `sizeOne` class attributes
+```javascript
+<button
+    [ngStyle]="{
+        'color': (active ? 'white' : 'black'),
+        'fontWeight': (active ? 'bold' : 'normal'),
+        'fontSize': sizeOne + 'px'
+    }"
+>
+    Click Me
+</button>
+```
+
+### `ng-content`
+- It's like a template for dynamic data, for example, let's say that we have a parent and a child component.
+- On child component, declare the `ng-content` where you want to place dynamic data later on. Set the `select` in order to overwrite the correct data.
+```javascript
+<div class="panel">
+    <ng-content select=".body"></ng-content>
+</div>
+```
+
+- On parent component:
+```javascript
+<div class="body">
+    Content that will be placed on the ng
+</div>
+```
+
+*Note that class body matches select attribute*

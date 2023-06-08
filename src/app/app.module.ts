@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { InputPropertyComponent } from './input-property/input-property.component';
 import { OutputPropertyComponent } from './output-property/output-property.component';
 import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
     DataBindingComponent,
     InputPropertyComponent,
     OutputPropertyComponent,
-    DiretivaNgifComponent
+    DiretivaNgifComponent,
+    DirectivesComponent
   ],
   imports: [
     BrowserModule,
