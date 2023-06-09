@@ -275,3 +275,111 @@ Example:
 ```
 
 *Note that class body matches select attribute*
+
+### `ElementRef` and `Renderer`
+- Creating a custom directive: `ng g d shared/directive-name`
+- `ElementRef` references a DOM element
+- `Renderer` manipulates DOM elements
+- Applying a custom directive to a component:
+1. Under the directive file, in the `@Directive` decorator, define the directive name.
+```javascript
+@Directive({
+    selector: "p[yellowBackground]"
+});
+```
+*In the above example, this directive will be only applied to `<p>` tags that has `yellowBackground` directive*
+
+2. Under the directive file, use ElementRef and Renderer to apply what you want to an element:
+```javascript
+constructor (
+    private _elementRef: ElementRef,
+    private _renderer: Renderer
+) {
+    this._renderer.setElementStyle(
+        this._elementRef.nativeElement,
+        'background-color',
+        'yellow'
+    );
+}
+```
+*Remember to import ElementRef and Renderer from angular core*
+
+3. Apply the directive to a component:
+```html
+<p yellowBackground>Text</p>
+```
+
+### `HostListener` and `HostBinding`
+- `HostListener` listen to events on the directive host
+- `HostBinding` allows to bind HTML attributes or classes to a variable
+1. Under the directive file, in the `@Directive` decorator, define the directive name.
+```javascript
+@Directive({
+    selector: "[highlightMouse]"
+});
+```
+
+2. Add listeners to the directive class:
+```javascript
+@HostListener('mouseenter') onMouseOver() {
+    this.backgroundColor = 'yellow';
+};
+
+@HostListener('mouseleave') onMouseLeave() {
+    this.backgroundColor = 'white';
+};
+```
+
+3. Create the binding to allow the Listener manipulate it:
+```javascript
+@HostBinding("style.backgroundColor") backgroundColor: string;
+```
+
+4. Apply the directive to a component:
+```html
+<p highlightMouse>Text</p>
+```
+
+### Custom Input and Property binding
+1. Under the directive file, in the `@Directive` decorator, define the directive name.
+```javascript
+@Directive({
+    selector: "[highlight]"
+});
+```
+
+2. Add variables to be used as properties:
+```javascript
+@Input() defaultColor: string = 'white';
+@Input() highlightColor: string = 'yellow';
+```
+
+3. Create the binding to allow the Listener manipulate it:
+```javascript
+@HostBinding("style.backgroundColor") backgroundColor: string;
+```
+
+4. Add the listener events:
+```javascript
+@HostListener('mouseenter') onMouseOver() {
+    this.backgroundColor = this.highlightColor;
+};
+
+@HostListener('mouseleave') onMouseLeave() {
+    this.backgroundColor = this.defaultColor;
+};
+```
+
+5. Add the properties to the element:
+```javascript
+<p highlight [defaultColor]="'grey'" [highlightColor]="'red'">
+    Text
+</p>
+```
+
+6. To set an initial attribute, use `ngOnInit()`:
+```javascript
+ngOnInit() {
+    this.backgroundColor = this.defaultColor;
+}
+```
