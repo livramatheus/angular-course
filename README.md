@@ -383,3 +383,36 @@ ngOnInit() {
     this.backgroundColor = this.defaultColor;
 }
 ```
+
+## Services
+
+- Classes that are dedicated to fetching data and returning it to the component
+- Services are singleton. But, if you want separate instances or if they are specifically local, they can be declared under `@Component` object (under providers attribute)
+
+### Dependency Injection
+
+- To avoid creating instances manually, services classes can be injectable, so Angular automatically creates the instance and injects it into the right class.
+1. Create the service class and add the `@Injectable` decorator on top (remember to import it from core):
+
+```javascript
+@Injectable()
+export class CoursesService {
+    // ...
+}
+```
+
+2. As the service class is a provider, it needs to be imported under the `app.module.ts`, under `providers` array (The instance will be created automatically and it will be available to use for the entire application)
+
+```javascript
+providers: [CoursesService]
+```
+
+3. Lastly, where you want to use the service, just add a parameter to the constructor where the attribute is the same type as the service. The framework will inject the instance of the class automatically (the service needs to be imported here also)
+
+```javascript
+constructor(private coursesService: CoursesService) {
+// ..
+}
+```
+
+4. Remember, the constructor will only inject the dependency, to make the call, do it under `ngOnInit`
