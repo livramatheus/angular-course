@@ -416,3 +416,39 @@ constructor(private coursesService: CoursesService) {
 ```
 
 4. Remember, the constructor will only inject the dependency, to make the call, do it under `ngOnInit`
+
+## Pipes
+
+- Used to easily manipulate data
+
+```html
+<p>Title: {{ book.title | uppercase }}</p>
+<p>Stars: {{ book.stars | number:'1.1-1' }}</p>
+<p>Pages: {{ book.pages | number }}</p>
+<p>Price: {{ book.price | currency:'BRL':true }}</p>
+<p>Launch Date: {{ book.launchDate | date:'dd-MMM-yyyy' }}</p>
+<p>URL: {{ book.url }}</p>
+<p>Book: {{ book.book | json }}</p>
+```
+
+### Custom Pipes
+
+- Can be created with CLI by typing `ng g p pipe-name`
+- On `@Pipe` you can define the name of the pipe that will be called later on
+- Under `transform` function you can do anything and then return the new value
+
+### Change Locale
+
+- Under `providers` attribute at `app.module.ts`, add `{ provide: LOCALE_ID, useValue: 'pt-BR' }`
+- This can be done app-wise or module-wise
+
+### Pure Pipes x Impure Pipes
+
+- To set a pipe as Impure, attribute `pure: false` should be added to the `@Pipe` decorator
+- Pure pipe: doesn't care for changes on input data
+- Impure pipe: listens for changes on input data
+
+### Async Pipe
+
+- Used to automatically display the result from an async call when ready
+`<p>{{ asyncValue | async }}</p>`
